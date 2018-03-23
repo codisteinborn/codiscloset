@@ -6,6 +6,7 @@ const prodSchema = new Schema({
   category: { type: String, required: true },
   price: { type: Number, required: true },
   size: { type: String, required: true },
+  image: {type: String},
   date: { type: Date, default: Date.now }
 });
 
