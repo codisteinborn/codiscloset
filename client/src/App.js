@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
-// import './App.css';
 import Navbr from './components/Nav'
 import Jumbo from './components/Jumbotron'
 import Foot from './components/Footer'
-import ProdPrev from './components/ProdPrev/ProdPrev';
-import ProductContainer from './components/ProductContainer';
+import ProdPrev from './components/ProductPanel/ProdPrev';
+import ProductContainer from './components/ProductPanel/ProductContainer';
+import PayForm from './components/CartPanel/PayForm'
+import CartContainer from './components/CartPanel/CartContainer';
 
-class App extends Component {
-  render() {
-    return (
+const App = () => (
       <div className="App">
         <Navbr />
         <Jumbo />
         <ProdPrev />
-        {/* <ProductContainer/> */}
+        <ProductContainer/>
+        <CartContainer/>
         <Foot/>
       </div>
     );
-  }
-}
+
 
 export default App;

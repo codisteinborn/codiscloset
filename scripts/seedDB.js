@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 const db = require("../models");
 mongoose.Promise = global.Promise;
 
-// This file empties the Prods collection and inserts the books below
+// This file empties the Prods collection and inserts the prods/users below
 
 mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://localhost/productlist",
+    process.env.MONGODB_URI || "mongodb://codisteinborn:codi@ds123129.mlab.com:23129/heroku_xc11c11n",
     {
         useMongoClient: true
     }
@@ -17,6 +17,7 @@ const prodSeed = [
         name: "tshirt",
         price: 20,
         size: "Medium",
+        image: "",
         date: new Date(Date.now())
     },
     {
@@ -24,6 +25,7 @@ const prodSeed = [
         name: "pants",
         price: 30,
         size: "Large",
+        image: "",
         date: new Date(Date.now())
     },
     {
@@ -31,6 +33,7 @@ const prodSeed = [
         name: "dress",
         price: 25,
         size: "Small",
+        image: "",
         date: new Date(Date.now())
     },
     {
@@ -38,6 +41,7 @@ const prodSeed = [
         name: "trousers",
         price: 36,
         size: "Small",
+        image: "",
         date: new Date(Date.now())
     },
     {
@@ -45,6 +49,7 @@ const prodSeed = [
         name: "maxi dress",
         price: 39,
         size: "Small",
+        image: "",
         date: new Date(Date.now())
     },
     {
@@ -52,6 +57,7 @@ const prodSeed = [
         name: "blouse",
         price: 40,
         size: "Large",
+        image: "",
         date: new Date(Date.now())
     },
     {
@@ -59,6 +65,7 @@ const prodSeed = [
         name: "crop top",
         price: 15,
         size: "X-Small",
+        image: "",
         date: new Date(Date.now())
     }
 ];
@@ -88,7 +95,8 @@ db.Prod
         console.error(err);
         process.exit(1);
     });
-    db.User
+
+db.User
     .remove({})
     .then(() => db.User.collection.insertMany(userSeed))
     .then(data => {

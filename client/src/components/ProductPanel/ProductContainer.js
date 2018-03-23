@@ -1,5 +1,6 @@
-import { React, Component } from "react";
-import ProdPrev from './ProdPrev/ProdPrev'
+import  React, {Component } from 'react';
+import ProdPrev from './ProdPrev';
+import ProdDetail from './ProdDetail'
 
 const prodArr = [
     {
@@ -52,6 +53,9 @@ const prodArr = [
         size: "X-Small"
     },
 ]
+
+// handleproductselect function which will enable productdetail modal on that productprev
+// handleproductremove disables the modal
 
 class ProductContainer extends Component {
     render() {
