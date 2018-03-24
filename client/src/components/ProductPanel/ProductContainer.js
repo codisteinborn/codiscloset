@@ -1,66 +1,51 @@
-import  React, {Component } from 'react';
+import React, { Component } from 'react';
+import API from '../../utils/API'
 import ProdPrev from './ProdPrev';
-import ProdDetail from './ProdDetail'
-
-const prodArr = [
-    {
-        id: 0,
-        category: "tops",
-        name: "tshirt",
-        price: 20,
-        size: "Medium"
-    },
-    {
-        id: 1,
-        category: "bottoms",
-        name: "pants",
-        price: 30,
-        size: "Large"
-    },
-    {
-        id: 2,
-        category: "dresses",
-        name: "dress",
-        price: 25,
-        size: "Small"
-    },
-    {
-        id: 3,
-        category: "bottoms",
-        name: "trousers",
-        price: 36,
-        size: "Small"
-    },
-    {
-        id: 4,
-        category: "dresses",
-        name: "maxi dress",
-        price: 39,
-        size: "Small"
-    },
-    {
-        id: 5,
-        category: "tops",
-        name: "blouse",
-        price: 40,
-        size: "Large"
-    },
-    {
-        id: 6,
-        category: "tops",
-        name: "crop top",
-        price: 15,
-        size: "X-Small"
-    },
-]
-
-// handleproductselect function which will enable productdetail modal on that productprev
-// handleproductremove disables the modal
+import ProdDetail from './ProdDetail';
+import { Row, Col } from 'react-bootstrap'
+import CategoryPanel from './CategoryPanel/CategoryPanel';
+import Jumbo from '../Jumbotron'
 
 class ProductContainer extends Component {
+    state = {
+        prodArr: [],
+        modal: false
+    }
+
+    componentDidMount() {
+        this.loadProds();
+    }
+
+    loadProds = () => {
+        API.getProds()
+            .then(res =>
+                this.setState({ prodArr: res.data })
+            )
+            .catch(err => console.log(err));
+    };
+
+    // function which will enable productdetail modal on that productprev
+    handleProdSelect = () => {
+        this.setState({ modal: !this.state.modal })
+    }
+
+    // handleproductremove disables the modal
+
     render() {
         return (
-            prodArr.map(elem => <ProdPrev category={elem.category} name={elem.name} price={elem.price} key={elem.id} />)
+                this.state.modal ?
+                <ProdDetail/> :
+                <div>
+            <Jumbo/>
+            <Row>
+                <Col xs={0} sm={3} md={3}>
+                    <CategoryPanel />
+                </Col>
+                <Col xs={12} sm={9} md={9}>
+                    {this.state.prodArr.map(elem => <ProdPrev category={elem.category} name={elem.name} price={elem.price} key={elem.id} image={elem.image} />)}
+                </Col>
+            </Row>
+                </div>
         );
     };
 }

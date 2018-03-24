@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
-import Navbr from './components/Nav'
-import Jumbo from './components/Jumbotron'
-import Foot from './components/Footer'
-import ProdPrev from './components/ProductPanel/ProdPrev';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navbr from './components/Nav';
+import Jumbo from './components/Jumbotron';
+import Foot from './components/Footer';
 import ProductContainer from './components/ProductPanel/ProductContainer';
-import PayForm from './components/CartPanel/PayForm'
 import CartContainer from './components/CartPanel/CartContainer';
+import UserContainer from './components/UserPanel/UserContainer'
 
 const App = () => (
-      <div className="App">
-        <Navbr />
-        <Jumbo />
-        <ProdPrev />
-        <ProductContainer/>
-        <CartContainer/>
-        <Foot/>
-      </div>
-    );
+  <Router>
+    <div className="App">
+      <Navbr />
+      <Switch>
+      <Route exact path="/" component={ProductContainer} />
+      <Route exact path="/cart" component={CartContainer} />
+      <Route exact path="/user" component={UserContainer} />
+      </Switch>
+      <Foot />
+    </div>
+  </Router>
+);
 
 
 export default App;
