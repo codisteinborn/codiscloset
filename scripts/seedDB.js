@@ -17,7 +17,7 @@ const prodSeed = [
         name: "tshirt",
         price: 20,
         size: "Medium",
-        image: "",
+        image: "https://media.bonds.com.au/catalog/product/cache/1/small_image/300x450/9df78eab33525d08d6e5fb8d27136e95/C/W/CWT3I_28H_SD_1.jpg",
         date: new Date(Date.now())
     },
     {
