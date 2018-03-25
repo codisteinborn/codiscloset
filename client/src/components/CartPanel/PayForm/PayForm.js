@@ -6,9 +6,7 @@ import { Col, Row, Modal, Form, FormGroup, ControlLabel, FormControl, HelpBlock 
 class PayForm extends React.Component {
     constructor(props, context) {
         super(props, context);
-
         this.handleChange = this.handleChange.bind(this);
-
         this.state = {
             value: ''
         };
