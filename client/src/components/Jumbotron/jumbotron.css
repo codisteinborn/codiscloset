@@ -1,0 +1,21 @@
+.jumboBkrnd {
+    height: 700px;
+    clear: 'both';
+    color: 'white';
+    background-image: url('./jumboimg.jpg');
+    background-size: cover;
+    /* filter: grayscale(100%) */
+}
+.shopBtn{
+    height: 75px;
+    width: 290px;
+    border: 6px;
+    border-style: solid;
+    border-color: white;
+    background-color: rgba(245, 245, 245, 0) ;
+    /* opacity: 1; */
+    color: white;
+    font-size: 30px;
+    position: relative;
+    bottom: 0;
+}
