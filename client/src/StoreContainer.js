@@ -3,14 +3,15 @@ import API from '../../utils/API'
 import ProdPrev from './ProdPrev';
 import ProdDetail from './ProdDetail';
 import { Row, Col } from 'react-bootstrap'
-import CategoryPanel from './CategoryPanel/CategoryPanel';
-import Jumbo from '../Jumbotron'
+import CartContainer from './components/.CartPanel/CartContainer'
+import ProductContainer from './components/.ProductPanel/ProductContainer'
 
-class ProductContainer extends Component {
+class StoreContainer extends Component {
     state = {
         prodArr: [],
         modal: false,
-        cart: []
+        cart: [],
+        cartView: false
     }
 
     componentDidMount() {
@@ -44,26 +45,16 @@ class ProductContainer extends Component {
     }
 
     handleCartAdd = () => {
-this.setState({cart: this.state.prodArr})
+        this.setState({ cart: this.state.prodArr })
     }
 
     render() {
         return (
-            this.state.modal ?
-                <ProdDetail name={this.state.prodArr.name} image={this.state.prodArr.image} remover={() => this.handleProdRemove()} cartAdder={() => this.handleCartAdd()}/> :
-                <div>
-                    <Jumbo />
-                    <Row>
-                        <Col xs={0} sm={3} md={3}>
-                            <CategoryPanel />
-                        </Col>
-                        <Col xs={12} sm={9} md={9}>
-                            {this.state.prodArr.map(elem => <ProdPrev category={elem.category} name={elem.name} price={elem.price} key={elem.id} image={elem.image} clicker={() => this.handleProdSelect(elem._id)} />)}
-                        </Col>
-                    </Row>
-                </div>
+           this.state.cartView ?
+                    <CartContainer /> :
+                    <ProductContainer />
         );
     };
 }
 
-export default ProductContainer;
+export default StoreContainer

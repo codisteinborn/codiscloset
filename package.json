@@ -23,7 +23,10 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "mongoose": "^4.11.7",
+    "muicss": "^0.9.38",
     "payment": "^2.3.0",
-    "react-bootstrap": "^0.32.1"
+    "react-bootstrap": "^0.32.1",
+    "react-credit-card-input": "^0.4.5",
+    "react-credit-card-thing": "^0.0.1"
   }
 }
