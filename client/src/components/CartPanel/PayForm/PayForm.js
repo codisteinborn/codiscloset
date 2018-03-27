@@ -4,7 +4,6 @@ import CreditCardInput from 'react-credit-card-input';
 import { Col, Row, Modal, FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap'
 import Form from 'muicss/lib/react/form';
 import Input from 'muicss/lib/react/input';
-import Textarea from 'muicss/lib/react/textarea';
 import Button from 'muicss/lib/react/button';
 
 // acceptmpt function which gives you success msg w/ order # and disables modal
@@ -28,30 +27,10 @@ class PayForm extends React.Component {
         };
     }
 
-    // getValidationState() {
-    //     const length = this.state.value.length;
-    //     const val = this.state.value
-    //     if (val !== Number) return 'error';
-    //     else if (length < 16) return 'warning';
-    //     else if (length === 16) return 'success';
-    //     return null;
-    // }
-
     handleChange =(e) => {
         const {name, value} = e.target;
         this.setState({ 
             [name]:value
-            // firstBillName: e.target.firstBillName,
-            // lastBillName: e.target.lastBillName,
-            // cardNumber: e.target.cardNumber,
-            // expiry: e.target.expiry,
-            // cvc: e.target.cvc,
-            // firstShipName: e.target.firstShipName,
-            // lastShipName: e.target.lastShipName,
-            // address: e.target.address,
-            // email: e.target.email,
-            // stateCode: e.target.stateCode,
-            // zip: e.target.zip
          });   
          console.log(this.state)
     }
