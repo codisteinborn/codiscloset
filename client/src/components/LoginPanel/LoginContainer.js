@@ -19,13 +19,13 @@ import StoreContainer from './../../StoreContainer'
     const LoginContainer = props => (
                 props.hasAccount ?
                 <Form>
-                    {/* <Input label="Email Address" value={this.state.email} type="email" floatingLabel={true} required={true} name="email" onChange={this.handleChange} />
-                    <Input label="Password" value={this.state.password} name="password" required={true} floatingLabel={true} onChange={this.handleChange} /> */}
+                    <Input label="Email Address" type="email" floatingLabel={true} required={true} />
+                    <Input label="Password" name="pswd" required={true} floatingLabel={true} />
                 <Button>Sign In</Button>
                 </Form> :
                 <Form>
-                {/* <Input label="Email Address" value={this.state.email} type="email" floatingLabel={true} required={true} name="email" onChange={this.handleChange} />
-                <Input label="Password" value={this.state.password} name="password" required={true} floatingLabel={true} onChange={this.handleChange} /> */}
+                <Input label="Email Address" type="email" floatingLabel={true} required={true} />
+                <Input label="Password" name="pswd" required={true} floatingLabel={true} />
             <Button>Sign Up</Button>
             </Form>
         );

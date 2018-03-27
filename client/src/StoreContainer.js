@@ -41,19 +41,16 @@ class StoreContainer extends Component {
 
     // function which will enable productdetail modal on that productprev
     handleProdSelect = id => {
-        // API.getProd(id)
-        //     .then(res =>
-        //         this.setState({ prodArr: res.data, modal: true, cartView: false })
-        //     )
-        //     .catch(err => console.log(err));
         this.setState({ activeProd: this.state.prodArr.find(e => e._id === id), modal: true })
     }
-
     handleProdRemove = ()=> {
         this.setState({  modal: false, activeProd: '' })
     }
     handleCartAdd = () => {
-        this.setState({ cart: this.state.prodArr })
+        this.setState({ cart: [...this.state.cart, this.state.activeProd] })
+    }
+    handleCartRemove = id => {
+        this.setState({ cart: this.state.cart.filter(e => e._id !== id) })
     }
     handleCartView = () => {
         this.setState({ cartView: true, modal: false, loginView: false })
@@ -69,11 +66,11 @@ class StoreContainer extends Component {
             <div>
                 <Navbr toggleHome={() => this.handleHomeView()} toggleCart={() => this.handleCartView()} toggleLogin={() => this.handleLoginView()} />
                 {this.state.cartView ?
-                    <CartContainer cart={this.state.cart} /> :
+                    <CartContainer cart={this.state.cart} cartRemover={this.handleCartRemove} /> :
                     this.state.loginView ?
-                        <LoginContainer handleChange={() => this.handleChange()} hasAccount={this.state.hasAccount} pswd={this.state.password} email={this.state.email} /> :
+                        <LoginContainer handleChange={this.handleChange} hasAccount={this.state.hasAccount} /> :
                         this.state.modal ?
-                        <ProdDetail remover={this.handleProdRemove} active={this.state.activeProd} /> :
+                        <ProdDetail remover={this.handleProdRemove} active={this.state.activeProd} cartAdder={this.handleCartAdd} /> :
                         <ProductContainer modal={this.state.modal} prodArr={this.state.prodArr} clicker={this.handleProdSelect} />
                 }
             </div>
