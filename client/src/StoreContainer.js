@@ -54,7 +54,7 @@ class StoreContainer extends Component {
         })
     }
     handleCartRemove = id => {
-        this.setState({ cart: this.state.cart.find(e => e._id !== id) })
+        this.setState({ cart: this.state.cart.filter(e => e._id !== id) })
     }
     handleCartView = () => {
         this.setState({ cartView: true, modal: false, loginView: false })
