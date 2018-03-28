@@ -1,11 +1,14 @@
 import React from "react";
-import { Col, Row, Modal } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap';
+import StoreContainer from './../../../StoreContainer'
 
-// handleaddtocart function which adds product to cart and disables modal
-
-const CategoryPanel = props => (
-  <div>Categories:
-    </div>
+const CategoryPanel = () => (
+  <Col sm={12} style={{textAlign: 'center'}}>
+  <Row>Sort by Category:</Row>
+  <Row>Bottoms </Row>
+  <Row>Dresses </Row>
+  <Row>Tops </Row>
+  </Col>
 );
 
 export default CategoryPanel;
