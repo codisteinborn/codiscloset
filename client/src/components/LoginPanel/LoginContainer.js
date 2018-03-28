@@ -7,12 +7,12 @@ import StoreContainer from './../../StoreContainer'
 
 const LoginContainer = props => (
     props.hasAccount ?
-        <Form>
+        <Form style={{textAlign: 'center'}}>
             <Input label="Email Address" type="email" floatingLabel={true} required={true} />
             <Input label="Password" name="pswd" required={true} floatingLabel={true} />
             <Button>Sign In</Button>
         </Form> :
-        <Form>
+        <Form style={{textAlign: 'center'}}>
             <Input label="Email Address" type="email" floatingLabel={true} required={true} />
             <Input label="Password" name="pswd" required={true} floatingLabel={true} />
             <Button>Sign Up</Button>

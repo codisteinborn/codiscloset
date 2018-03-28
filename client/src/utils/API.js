@@ -9,6 +9,10 @@ export default {
   getProd: function(id) {
     return axios.get("/api/prods/" + id);
   },
+    // Gets the prod with the given id
+  getProdCat: function(category) {
+    return axios.get("/api/prods/" + category);
+    },
   // Deletes the prod with the given id
   deleteProd: function(id) {
     return axios.delete("/api/prods/" + id);
