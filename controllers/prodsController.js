@@ -5,7 +5,6 @@ module.exports = {
   findAll: function(req, res) {
     db.Prod
       .find(req.query)
-      // .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -17,7 +16,7 @@ module.exports = {
   },
   findByCategory: function(req, res) {
     db.Prod
-      .findById(req.params.category)
+      .findByCategory(req.params.category)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

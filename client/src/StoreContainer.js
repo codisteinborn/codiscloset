@@ -12,6 +12,7 @@ class StoreContainer extends Component {
     state = {
         prodArr: [],
         cart: [],
+        catArr: [],
         modal: false,
         cartView: false,
         loginView: false,
@@ -45,8 +46,13 @@ class StoreContainer extends Component {
         this.setState({  modal: false, activeProd: '' })
     }
 
-    // handleCategorySelect
-    // handleCategoryRemove
+    handleCategorySelect = cat => {
+        this.setState({ catArr: this.state.prodArr.find(e => e.category === cat), catView: true })
+    }
+
+    handleCategoryRemove = cat => {
+        this.setState({ catArr: [], catView: false })
+    }
 
     handleCartAdd = id => {
         this.setState({ cart: [...this.state.cart, this.state.activeProd],
@@ -78,7 +84,7 @@ class StoreContainer extends Component {
                         <LoginContainer handleChange={this.handleChange} hasAccount={this.state.hasAccount} /> :
                         this.state.modal ?
                         <ProdDetail remover={this.handleProdRemove} active={this.state.activeProd} cartAdder={this.handleCartAdd} /> :
-                        <ProductContainer modal={this.state.modal} prodArr={this.state.prodArr} clicker={this.handleProdSelect} />
+                        <ProductContainer modal={this.state.modal} prodArr={this.state.prodArr} clicker={this.handleProdSelect} catSelect={this.handleCategorySelect} catRemove={this.handleCategoryRemove} />
                 }
             </div>
         );
