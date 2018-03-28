@@ -18,14 +18,13 @@ class StoreContainer extends Component {
         email: '',
         password: '',
         hasAccount: false,
-        activeProd: ''
+        activeProd: '',
     }
     handleChange = (e) => {
         const { name, value } = e.target;
         this.setState({
             [name]: value
         });
-        //  console.log(this.state)
     }
     componentDidMount() {
         this.loadProds();
@@ -39,18 +38,23 @@ class StoreContainer extends Component {
             .catch(err => console.log(err));
     };
 
-    // function which will enable productdetail modal on that productprev
     handleProdSelect = id => {
         this.setState({ activeProd: this.state.prodArr.find(e => e._id === id), modal: true })
     }
     handleProdRemove = ()=> {
         this.setState({  modal: false, activeProd: '' })
     }
-    handleCartAdd = () => {
-        this.setState({ cart: [...this.state.cart, this.state.activeProd] })
+
+    // handleCategorySelect
+    // handleCategoryRemove
+
+    handleCartAdd = id => {
+        this.setState({ cart: [...this.state.cart, this.state.activeProd],
+            // prodArr: this.state.prodArr.filter(e => e._id !== id) 
+        })
     }
     handleCartRemove = id => {
-        this.setState({ cart: this.state.cart.filter(e => e._id !== id) })
+        this.setState({ cart: this.state.cart.find(e => e._id !== id) })
     }
     handleCartView = () => {
         this.setState({ cartView: true, modal: false, loginView: false })
@@ -61,9 +65,12 @@ class StoreContainer extends Component {
     handleHomeView = () => {
         this.setState({ loginView: false, modal: false, cartView: false })
     }
+
+    // placeOrderFun validates cc and info and displays success "modal"
+
     render() {
         return (
-            <div>
+            <div style={{fontFamily: 'Poppins'}}>
                 <Navbr toggleHome={() => this.handleHomeView()} toggleCart={() => this.handleCartView()} toggleLogin={() => this.handleLoginView()} />
                 {this.state.cartView ?
                     <CartContainer cart={this.state.cart} cartRemover={this.handleCartRemove} /> :

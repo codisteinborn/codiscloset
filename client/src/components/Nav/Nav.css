@@ -1,0 +1,12 @@
+.navBrand{
+    float: left;
+    font-size: 35px;
+    color: navy;
+}
+.navRight{
+    position: absolute;
+    right: 10px;
+    float: right;
+    font-size: 20px;
+    color: navy
+}

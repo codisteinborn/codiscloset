@@ -4,18 +4,36 @@
     color: 'white';
     background-image: url('./jumboimg.jpg');
     background-size: cover;
+    position: relative;
     /* filter: grayscale(100%) */
 }
 .shopBtn{
     height: 75px;
     width: 290px;
-    border: 6px;
-    border-style: solid;
-    border-color: white;
+    border: 6px solid white;
     background-color: rgba(245, 245, 245, 0) ;
-    /* opacity: 1; */
     color: white;
     font-size: 30px;
-    position: relative;
-    bottom: 0;
+    position: absolute;
+    bottom: 50px;
+    left: 50px
 }
+
+@media only screen and (max-width: 600px) {
+    .jumboBkrnd {
+        height: 400px;
+        clear: 'both';
+        color: 'white';
+        background-image: url('./jumboimg.jpg');
+        background-position: center;
+        position: relative;
+    }
+    .shopBtn {
+    height: 37px;
+    width: 160px;
+    border: 3px solid white;
+    font-size: 15px;
+    bottom: 20px;
+    left: 25px
+    }
+  }

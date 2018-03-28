@@ -1,0 +1,13 @@
+.prodImg{ 
+    height: 450px;
+    width: 300px;
+}
+.pp{
+    padding: 25px;
+    text-align: center;
+    /* border: 3px solid gray; */
+}
+.prodInfo{
+    font-size: 15px;
+    padding: 7px;
+}
