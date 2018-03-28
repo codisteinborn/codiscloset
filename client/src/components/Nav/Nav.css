@@ -1,12 +1,22 @@
-.navBrand{
+/* .navBrand{
     float: left;
-    font-size: 35px;
-    color: navy;
-}
-.navRight{
-    position: absolute;
-    right: 10px;
-    float: right;
     font-size: 20px;
-    color: navy
+    color: navy;
+} */
+.navRight{
+    /* position: absolute;
+    right: 10px; */
+    float: right;
+    font-size: 15px;
+    color: navy;
+    margin: 12px;
+    cursor: pointer;
+}
+.logo{
+    height: 50px;
+    width: 100px;
+    z-index: 10;
+    padding: 0;
+    margin-top: 0;
+    cursor: pointer;
 }

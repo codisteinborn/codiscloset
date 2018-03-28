@@ -1,11 +1,11 @@
 .jumboBkrnd {
-    height: 700px;
+    height: 500px;
     clear: 'both';
     color: 'white';
     background-image: url('./jumboimg.jpg');
     background-size: cover;
+    background-position-y: center;
     position: relative;
-    /* filter: grayscale(100%) */
 }
 .shopBtn{
     height: 75px;
@@ -21,7 +21,7 @@
 
 @media only screen and (max-width: 600px) {
     .jumboBkrnd {
-        height: 400px;
+        height: 300px;
         clear: 'both';
         color: 'white';
         background-image: url('./jumboimg.jpg');

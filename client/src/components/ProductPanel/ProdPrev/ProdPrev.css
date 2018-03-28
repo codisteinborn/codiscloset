@@ -1,6 +1,7 @@
 .prodImg{ 
     height: 450px;
     width: 300px;
+    cursor: pointer;
 }
 .pp{
     padding: 25px;
