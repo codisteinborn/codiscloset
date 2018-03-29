@@ -28,7 +28,6 @@
     "passport": "^0.4.0",
     "payment": "^2.3.0",
     "react-bootstrap": "^0.32.1",
-    "react-credit-card-input": "^0.4.5",
-    "react-credit-card-thing": "^0.0.1"
+    "react-credit-card-input": "^0.4.5"
   }
 }

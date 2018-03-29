@@ -2019,10 +2019,6 @@ react-credit-card-input@^0.4.5:
     payment "^2.3.0"
     styled-components "^2.2.3"
 
-react-credit-card-thing@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/react-credit-card-thing/-/react-credit-card-thing-0.0.1.tgz#24c80276d9c92665fa97a6291f0326e1fc923243"
-
 react-overlays@^0.8.0:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.8.3.tgz#fad65eea5b24301cca192a169f5dddb0b20d3ac5"
