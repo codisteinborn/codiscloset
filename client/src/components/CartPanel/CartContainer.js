@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Row, Col } from 'react-bootstrap'
+import React from 'react';
+import {Col } from 'react-bootstrap'
 import PayForm from './PayForm'
 import CartProd from './CartProd'
 // import StoreContainer from './../../StoreContainer'
@@ -14,7 +14,7 @@ const CartContainer = props => (
       <PayForm />
     </Col>
   </div> :
-  <div>No items in your cart yet! </div>
+  <div style={{textAlign: 'center', fontSize: 24}} xs={12}>Your cart is currently empty!</div>
 );
 
 export default CartContainer;

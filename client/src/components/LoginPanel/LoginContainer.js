@@ -10,12 +10,12 @@ const LoginContainer = props => (
         <Form style={{textAlign: 'center'}}>
             <Input label="Email Address" type="email" floatingLabel={true} required={true} />
             <Input label="Password" name="pswd" required={true} floatingLabel={true} />
-            <Button>Sign In</Button>
+            <Button variant="raised">Sign In</Button>
         </Form> :
         <Form style={{textAlign: 'center'}}>
             <Input label="Email Address" type="email" floatingLabel={true} required={true} />
             <Input label="Password" name="pswd" required={true} floatingLabel={true} />
-            <Button>Sign Up</Button>
+            <Button variant="raised">Sign Up</Button>
         </Form>
 );
 

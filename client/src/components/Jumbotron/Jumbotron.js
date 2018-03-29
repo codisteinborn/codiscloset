@@ -1,5 +1,5 @@
 import React from "react";
-import { Jumbotron, Image } from 'react-bootstrap';
+import { Jumbotron } from 'react-bootstrap';
 import Button from 'muicss/lib/react/button';
 import jumboimg from './jumboimg.jpg';
 import "./jumbotron.css";

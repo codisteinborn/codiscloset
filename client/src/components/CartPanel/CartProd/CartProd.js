@@ -1,7 +1,6 @@
 import React from "react";
-import { Col, Row } from 'react-bootstrap'
+// import { Col, Row } from 'react-bootstrap'
 import Button from 'muicss/lib/react/button';
-// handleaddtocart function which adds product to cart and disables modal
 
 const CartProd = props => (
     <div style={{fontSize: 22}}>

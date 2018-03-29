@@ -17,10 +17,11 @@ const Navbr = props => (
   //   <i className="fas fa-shopping-cart"></i>
   //   </NavItem >
   // </Nav>
-<div>
-<img src={brand} alt='logo' className="logo" onClick={props.toggleHome}/>
+<div id="nav">
+{/* <img src={brand} alt='logo' className="logo" onClick={props.toggleHome}/> */}
+<div className="navBrand" onClick={props.toggleHome}>codi's closet</div>
 
-<div onClick={props.toggleCart} className="fas fa-shopping-cart navRight"></div>
+<div onClick={props.toggleCart} className=" navRight">cart</div>
 
 <div className="navRight" onClick={props.toggleLogin}> LOG IN/SIGN UP</div>
 </div>

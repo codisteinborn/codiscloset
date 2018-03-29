@@ -1,20 +1,28 @@
-/* .navBrand{
-    float: left;
-    font-size: 20px;
+#nav{
+    height: 50px;
+    clear: both;
+    background-color: whitesmoke;
+    position: relative
+}
+.navBrand{
+    font-family: 'Monoton', 'cursive';
+    font-size: 38px;
     color: navy;
-} */
+    padding: 0;
+    margin-top: 0;
+    cursor: pointer;
+    float: left;
+}
 .navRight{
-    /* position: absolute;
-    right: 10px; */
     float: right;
     font-size: 15px;
     color: navy;
-    margin: 12px;
+    margin: 15px;
     cursor: pointer;
 }
 .logo{
-    height: 50px;
-    width: 100px;
+    height: 60px;
+    width: 150px;
     z-index: 10;
     padding: 0;
     margin-top: 0;
