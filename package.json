@@ -20,10 +20,12 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "mongoose": "^4.11.7",
     "muicss": "^0.9.38",
+    "passport": "^0.4.0",
     "payment": "^2.3.0",
     "react-bootstrap": "^0.32.1",
     "react-credit-card-input": "^0.4.5",

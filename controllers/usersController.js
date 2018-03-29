@@ -1,37 +1,28 @@
 const db = require("../models");
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+const myPlaintextPassword = 's0/\/\P4$$w0rD';
+const someOtherPlaintextPassword = 'not_bacon';
 
 // Defining methods for the usersController
 module.exports = {
-  findAll: function(req, res) {
-    db.User
-      .find(req.query)
-      // .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  findById: function(req, res) {
-    db.User
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  create: function(req, res) {
-    db.User
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  update: function(req, res) {
-    db.User
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  remove: function(req, res) {
-    db.User
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+  create: function (req, res) {
+    // console.log(req.body);
+    // console.log("-------------------------");
+    var myPlainTextPassword = req.body.password;
+
+    bcrypt.hash(myPlainTextPassword, saltRounds, function (err, hash) {
+
+      db.User
+        .create({
+          email: req.body.email,
+          password: hash
+        })
+        .then(dbModel => res.json(dbModel))
+        .catch(err => {
+          console.log(err);
+          res.json(err)
+        });
+    });
   }
 };
