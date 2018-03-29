@@ -9,7 +9,7 @@ class LoginContainer extends Component {
     state = {
         email: '',
         password: '',
-        hasAccount: false
+        // hasAccount: false
     };
 
     handleInputChange = event => {
@@ -29,6 +29,16 @@ class LoginContainer extends Component {
             .then(res => console.log(res))
             .catch(err => console.log(err))
     };
+    handleSignIn = event => {
+        event.preventDefault();
+        console.log(this.state)
+        API.findUser({
+            email: this.state.email,
+            password: this.state.password,
+            })
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+    };
     handleHasAccount = event =>{
 this.setState({hasAccount: !this.state.hasAccount})
     }
@@ -36,20 +46,20 @@ this.setState({hasAccount: !this.state.hasAccount})
         render(){
             return (
                 <div>
-                {!this.state.hasAccount ?
-        <Form style={{textAlign: 'center'}}>
+                {/* {!this.state.hasAccount ? */}
+        {/* <Form style={{textAlign: 'center'}}>
             <Input label="Email Address" type="email" name="email" value={this.state.email} onChange={this.handleInputChange} floatingLabel={true} required={true} />
             <Input label="Password" name="password" required={true} value={this.state.password} onChange={this.handleInputChange} floatingLabel={true} />
             <Button onClick={this.handleSignUp} variant="raised">Sign Up</Button>
             <div>Already have an account?
                 <Button onClick={this.handleHasAccount}>Sign In Here</Button>
                 </div>
-        </Form> 
-        :
+        </Form>  */}
+        {/* : */}
         <Form style={{textAlign: 'center'}}>
             <Input label="Email Address" type="email" name="email" value={this.state.email} onChange={this.handleInputChange} floatingLabel={true} required={true} />
             <Input label="Password" name="password" required={true} value={this.state.password} onChange={this.handleInputChange} floatingLabel={true} />
-            <Button variant="raised">Sign In</Button>
+            <Button onClick={this.handleSignIn} variant="raised">Sign In</Button>
             <div>Need to create an account?
                 <Button onClick={this.handleHasAccount}>Sign Up Here</Button>
                 </div>
