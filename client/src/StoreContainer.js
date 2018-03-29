@@ -42,8 +42,8 @@ class StoreContainer extends Component {
     handleProdSelect = id => {
         this.setState({ activeProd: this.state.prodArr.find(e => e._id === id), modal: true })
     }
-    handleProdRemove = ()=> {
-        this.setState({  modal: false, activeProd: '' })
+    handleProdRemove = () => {
+        this.setState({ modal: false, activeProd: '' })
     }
 
     handleCategorySelect = cat => {
@@ -55,7 +55,8 @@ class StoreContainer extends Component {
     }
 
     handleCartAdd = id => {
-        this.setState({ cart: [...this.state.cart, this.state.activeProd],
+        this.setState({
+            cart: [...this.state.cart, this.state.activeProd],
             // prodArr: this.state.prodArr.filter(e => e._id !== id) 
         })
     }
@@ -76,15 +77,15 @@ class StoreContainer extends Component {
 
     render() {
         return (
-            <div style={{fontFamily: 'Poppins'}}>
+            <div style={{ fontFamily: 'Poppins' }}>
                 <Navbr toggleHome={() => this.handleHomeView()} toggleCart={() => this.handleCartView()} toggleLogin={() => this.handleLoginView()} />
                 {this.state.cartView ?
                     <CartContainer cart={this.state.cart} cartRemover={this.handleCartRemove} /> :
                     this.state.loginView ?
                         <LoginContainer handleChange={this.handleChange} hasAccount={this.state.hasAccount} /> :
                         this.state.modal ?
-                        <ProdDetail remover={this.handleProdRemove} active={this.state.activeProd} cartAdder={this.handleCartAdd} /> :
-                        <ProductContainer modal={this.state.modal} prodArr={this.state.prodArr} clicker={this.handleProdSelect} catSelect={this.handleCategorySelect} catRemove={this.handleCategoryRemove} />
+                            <ProdDetail remover={this.handleProdRemove} active={this.state.activeProd} cartAdder={this.handleCartAdd} /> :
+                            <ProductContainer modal={this.state.modal} prodArr={this.state.prodArr} clicker={this.handleProdSelect} catSelect={this.handleCategorySelect} catRemove={this.handleCategoryRemove} />
                 }
             </div>
         );
