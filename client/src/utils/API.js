@@ -17,8 +17,8 @@ export default {
   deleteProd: function(id) {
     return axios.delete("/api/prods/" + id);
   },
-  // Saves a prod to the database
-  saveProd: function(prodData) {
-    return axios.post("/api/prods", prodData);
+  // Saves a user to the database
+  saveUser: function(userData) {
+    return axios.post("/api/users", userData);
   }
 };
