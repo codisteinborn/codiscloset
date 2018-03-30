@@ -9,19 +9,20 @@ module.exports = {
   create: function (req, res) {
     var myPlainTextPassword = req.body.password;
 
-    bcrypt.hash(myPlainTextPassword, saltRounds, function (err, hash) {
+    // bcrypt.hash(myPlainTextPassword, saltRounds, function (err, hash) {
 
       db.User
         .create({
           email: req.body.email,
-          password: hash
+          username: req.body.username,
+          password: req.body.password
         })
         .then(dbModel => res.json(dbModel))
         .catch(err => {
           console.log(err);
           res.json(err)
         });
-    });
+  // });
   },
 
   login: function (req, res) {
@@ -33,11 +34,13 @@ module.exports = {
     //   // res == true
     // });
     db.User
-      .findOne({
-        email: req.body.email,
-        password: req.body.password
-      })
-      .then(dbModel => res.send(dbModel))
+      .findOne(
+        {email: req.body.email,
+        username: req.body.username,
+        password: req.body.password})
+      .then(dbModel => {
+        console.log(dbModel, "dbmodel");
+        res.send(dbModel)})
       .catch(err => {
         console.log(err);
         res.json(err)

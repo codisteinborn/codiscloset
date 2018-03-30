@@ -23,7 +23,6 @@ export default {
   },
   // Gets a user from the database
     findUser: function(userData) {
-      // console.log("find");
       return axios.post("/api/users/login", userData);
     }
 };
