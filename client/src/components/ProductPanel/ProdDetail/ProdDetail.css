@@ -1,9 +1,19 @@
 .modal-dialog{
-    /* background-color: rgba(80, 80, 80, 0.708); */
+    width: 80%;
+    height: 100%;
 }
 .modal-content{
     background-color: whitesmoke;
+    color: navy
 }
 .details{
-    text-align: center
+    text-align: center;
+    margin: 0;
+    padding: 0
 }
+.cartBtn{
+    width: 200px;
+}
+.detImg{
+    height: 500px;
+    width: 75% }

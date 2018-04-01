@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import API from './utils/API'
 import Navbr from './components/Nav';
+import Foot from './components/Footer';
 import ProdPrev from './components/ProductPanel/ProdPrev';
 import ProdDetail from './components/ProductPanel/ProdDetail';
 import { Row, Col } from 'react-bootstrap'
@@ -13,13 +14,15 @@ class StoreContainer extends Component {
         prodArr: [],
         cart: [],
         catArr: [],
+        activeProd: '',
         modal: false,
         cartView: false,
         loginView: false,
+        catView: false,
         email: '',
+        username: '',
         password: '',
-        hasAccount: false,
-        activeProd: '',
+        hasAccount: false
     }
     handleChange = (e) => {
         const { name, value } = e.target;
@@ -46,22 +49,24 @@ class StoreContainer extends Component {
         this.setState({ modal: false, activeProd: '' })
     }
 
-    handleCategorySelect = cat => {
-        this.setState({ catArr: this.state.prodArr.find(e => e.category === cat), catView: true })
-    }
+    // handleCategorySelect = cat => {
+    //     this.setState({ catArr: this.state.prodArr.filter(e => e.category === cat), catView: true })
+    // }
 
-    handleCategoryRemove = cat => {
-        this.setState({ catArr: [], catView: false })
-    }
+    // handleCategoryRemove = cat => {
+    //     this.setState({ catArr: [], catView: false })
+    // }
 
     handleCartAdd = id => {
         this.setState({
             cart: [...this.state.cart, this.state.activeProd],
-            // prodArr: this.state.prodArr.filter(e => e._id !== id) 
+            prodArr: this.state.prodArr.filter(e => e !== this.state.activeProd) 
         })
     }
     handleCartRemove = id => {
-        this.setState({ cart: this.state.cart.filter(e => e._id !== id) })
+        this.setState({ cart: this.state.cart.filter(e => e._id !== id),
+            // prodArr: this.state.prodArr.push()
+         })
     }
     handleCartView = () => {
         this.setState({ cartView: true, modal: false, loginView: false })
@@ -74,10 +79,13 @@ class StoreContainer extends Component {
     }
 
     // placeOrderFun validates cc and info and displays success "modal"
+    // handleOrderFun = () => {
+
+    // }
 
     render() {
         return (
-            <div style={{ fontFamily: 'Poppins' }}>
+            <div >
                 <Navbr toggleHome={() => this.handleHomeView()} toggleCart={() => this.handleCartView()} toggleLogin={() => this.handleLoginView()} />
                 {this.state.cartView ?
                     <CartContainer cart={this.state.cart} cartRemover={this.handleCartRemove} /> :
@@ -87,6 +95,7 @@ class StoreContainer extends Component {
                             <ProdDetail remover={this.handleProdRemove} active={this.state.activeProd} cartAdder={this.handleCartAdd} /> :
                             <ProductContainer modal={this.state.modal} prodArr={this.state.prodArr} clicker={this.handleProdSelect} catSelect={this.handleCategorySelect} catRemove={this.handleCategoryRemove} />
                 }
+                <Foot toggleHome={() => this.handleHomeView()} toggleCart={() => this.handleCartView()} toggleLogin={() => this.handleLoginView()}/>
             </div>
         );
     };

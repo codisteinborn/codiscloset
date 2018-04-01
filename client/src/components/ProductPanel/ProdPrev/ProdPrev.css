@@ -6,7 +6,11 @@
 .pp{
     padding: 25px;
     text-align: center;
-    /* border: 3px solid gray; */
+    height: 570px;
+}
+.viewBtn{
+    position: relative;
+    margin-top: 5px;
 }
 .prodInfo{
     font-size: 15px;

@@ -1,8 +1,7 @@
 import React from 'react';
-import {Col } from 'react-bootstrap'
+import {Col, Row } from 'react-bootstrap'
 import PayForm from './PayForm'
 import CartProd from './CartProd'
-// import StoreContainer from './../../StoreContainer'
 
 const CartContainer = props => (
   props.cart.length > 0 ?
@@ -14,7 +13,7 @@ const CartContainer = props => (
       <PayForm />
     </Col>
   </div> :
-  <div style={{textAlign: 'center', fontSize: 24}} xs={12}>Your cart is currently empty!</div>
+  <Row style={{ fontSize: 24}} xs={12} sm={12} md={12}>Your cart is currently empty!</Row>
 );
 
 export default CartContainer;

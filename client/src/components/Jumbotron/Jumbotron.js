@@ -7,6 +7,7 @@ import "./jumbotron.css";
 const Jumbo = props =>
 <div >
 <Jumbotron className="jumboBkrnd" >
+{/* add onclick scroll function */}
   <Button variant="raised" className="shopBtn">Shop Now</Button>
   </Jumbotron>
   </div>;

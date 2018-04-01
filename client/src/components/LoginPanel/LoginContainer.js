@@ -25,7 +25,7 @@ class LoginContainer extends Component {
             email: this.state.email,
             username: this.state.username,
             password: this.state.password
-        }).then(this.setState({hasAccount: true}))
+        }).then(this.setState({ hasAccount: true }))
             .then(res => console.log(res))
             .catch(err => console.log(err))
     };
@@ -37,13 +37,16 @@ class LoginContainer extends Component {
             username: this.state.username,
             password: this.state.password,
         })
-            .then(res => {console.log(res.data, "sign in res data");
-            if(res.data.email === this.state.email){
-                alert("account found")}
-                else{ alert("No such account found. Please try another username/password or create an account.")}
+            .then(res => {
+                console.log(res.data, "sign in res data");
+                if (res.data.email === this.state.email) {
+                    alert(`Welcome Back ${this.state.username}`);
+                    this.setState({ hasAccount: true })
+                }
+                else { alert("No such account found. Please try another username/password or create an account.") }
             })
             .catch(err => console.log(err))
-           
+
     };
     handleHasAccount = event => {
         this.setState({ hasAccount: !this.state.hasAccount })
