@@ -1,0 +1,20 @@
+#footer{
+    bottom:0;
+    height: 175px;
+    clear: 'both';
+    background-color: 'whitesmoke';
+    color: 'navy';
+}
+/* 
+.footBrand{
+    font-family: 'Monoton', 'cursive';
+    font-size: 25px;
+    color: navy;
+    cursor: pointer;
+    float: left;
+} */
+
+
+/* @media only screen and (max-width: 600px) {
+    
+    } */
