@@ -7,9 +7,9 @@ const CartContainer = props => (
   props.cart.length > 0 ?
   <div>
     <Col sm={12} md={6}>
-    {props.cart.map(elem => <CartProd category={elem.category} name={elem.name} price={elem.price} key={elem._id} cartRemover={elem.cartRemover} image={elem.image} id={elem._id}/>)}
+    {props.cart.map(elem => <CartProd category={elem.category} name={elem.name} price={elem.price} key={elem._id} cartRemover={props.cartRemover} image={elem.image} id={elem._id}/>)}
     </Col>
-    <Col sm={12} md={6}>
+    <Col sm={12} md={5}>
       <PayForm />
     </Col>
   </div> :

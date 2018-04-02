@@ -10,7 +10,9 @@ const Navbr = props => (
 
 <div onClick={props.toggleCart} className=" navRight">CART</div>
    {/* <i className="fas fa-shopping-cart"></i> */}
-<div className="navRight" onClick={props.toggleLogin}> LOG IN/SIGN UP</div>
+   {!props.loggedIn ? 
+<div className="navRight" onClick={props.toggleLogin}> LOG IN/SIGN UP</div> :
+<div className="navRight"> Welcome {props.username}! </div>}
 </div>
 
 );
