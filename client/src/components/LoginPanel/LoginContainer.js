@@ -10,7 +10,8 @@ class LoginContainer extends Component {
         email: '',
         username: '',
         password: '',
-        hasAccount: false
+        hasAccount: false,
+        accountExist: false
     };
 
     handleInputChange = event => {
@@ -41,7 +42,7 @@ class LoginContainer extends Component {
                 console.log(res.data, "sign in res data");
                 if (res.data.email === this.state.email) {
                     alert(`Welcome Back ${this.state.username}`);
-                    this.setState({ hasAccount: true })
+                    this.setState({ accountExist: true })
                 }
                 else { alert("No such account found. Please try another username/password or create an account.") }
             })
