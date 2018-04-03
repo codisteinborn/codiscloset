@@ -2045,6 +2045,10 @@ react-credit-card-input@^0.4.5:
     payment "^2.3.0"
     styled-components "^2.2.3"
 
+react-mailto@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/react-mailto/-/react-mailto-0.4.0.tgz#2229cb60fca3552273f82e4de96c83f2d12c0d5f"
+
 react-overlays@^0.8.0:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.8.3.tgz#fad65eea5b24301cca192a169f5dddb0b20d3ac5"

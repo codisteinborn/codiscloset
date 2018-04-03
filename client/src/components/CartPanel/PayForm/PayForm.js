@@ -6,7 +6,6 @@ import Form from 'muicss/lib/react/form';
 import Input from 'muicss/lib/react/input';
 import Button from 'muicss/lib/react/button';
 
-// acceptmpt function which gives you success msg w/ order # and disables modal
 
 class PayForm extends React.Component {
     constructor(props, context) {
@@ -23,7 +22,8 @@ class PayForm extends React.Component {
             address: '',
             email: '',
             zip: '',
-            stateCode: ''
+            stateCode: '',
+            orderSuccess: false
         };
     }
 
@@ -35,8 +35,44 @@ class PayForm extends React.Component {
         console.log(this.state)
     }
 
+
+// acceptmpt function which gives you success msg w/ order # and disables modal
+
+    // placeOrderFun validates cc and info and displays success "modal"
+    handleOrderFun = () => {
+if(this.state.firstShipName === '' || this.state.lastShipName === ''){
+    alert("Please enter valid shipping name.")
+}
+else if(this.state.address === ''){
+    alert("Please enter valid shipping address.")
+}
+else if(this.state.email === '' || !this.state.email.includes("@")){
+    alert("Please enter valid email address.")
+}
+else if(this.state.stateCode.length !== 2 ){
+    alert("Please enter valid 2 letter state code.")
+}
+else if(this.state.zip.length !== 5){
+    alert("Please enter valid 5 digit numeric zip code.")
+}
+else if(this.state.firstBillName === '' || this.state.lastBillName === ''){
+    alert("Please enter valid billing name.")
+}
+else if(this.state.cardNumber.length < 16){
+    alert("Please enter a valid credit card number.")
+}
+else if(this.state.expiry.length < 4){
+    alert("Please enter a valid expiration date.")
+}
+else if(this.state.cvc.length < 3){
+    alert("Please enter a valid CVC.")
+}
+else{this.setState({orderSuccess: true})}
+}
+
     render() {
         return (
+            !this.state.orderSuccess ?
             <div style={{ padding: 5, color: 'black' }}>
                 <Form className="Shipping">
                     <legend style={{ fontSize: 18 }}>Shipping Info</legend>
@@ -52,14 +88,17 @@ class PayForm extends React.Component {
                     <Input label="First Name" value={this.state.firstBillName} name="firstBillName" floatingLabel={true} required={true} onChange={this.handleChange} />
                     <Input label="Last Name" value={this.state.lastBillName} name="lastBillName" floatingLabel={true} required={true} onChange={this.handleChange} />
                     <CreditCardInput
-                        cardNumberInputProps={{ value: this.state.cardNumber, onChange: this.handleChange }}
-                        cardExpiryInputProps={{ value: this.state.expiry, onChange: this.handleChange }}
-                        cardCVCInputProps={{ value: this.state.cvc, onChange: this.handleChange }}
+                        cardNumberInputProps={{ value: this.state.cardNumber, name: "cardNumber", onChange: this.handleChange }}
+                        cardExpiryInputProps={{ value: this.state.expiry, name:"expiry", onChange: this.handleChange }}
+                        cardCVCInputProps={{ value: this.state.cvc, name:"cvc", onChange: this.handleChange }}
                         fieldClassName="input"
                     />
                 </Form>
-                <Button variant="raised">Place Order</Button>
-            </div>
+                <Button onClick={this.handleOrderFun} variant="raised">Place Order</Button>
+            </div> :
+            <div>
+                Order Success!
+                </div>
         );
     }
 }

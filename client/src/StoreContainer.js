@@ -15,17 +15,15 @@ class StoreContainer extends Component {
     state = {
         prodArr: [],
         cart: [],
-        catArr: [],
         activeProd: '',
         modal: false,
         cartView: false,
         loginView: true,
-        catView: false,
         email: '',
         username: '',
         password: '',
         hasAccount: false,
-        loggedIn: false
+        loggedIn: false,
     }
     handleChange = (e) => {
         const { name, value } = e.target;
@@ -52,17 +50,9 @@ class StoreContainer extends Component {
         this.setState({ modal: false, activeProd: '' })
     }
 
-    handleCategorySelect = cat => {
-        this.setState({ catArr: this.state.prodArr.filter(e => e.category === cat), catView: true })
-    }
-
-    // handleCategoryRemove = cat => {
-    //     this.setState({ catArr: [], catView: false })
-    // }
-
     handleCartAdd = id => {
         this.setState({
-            cart: [...this.state.cart, this.state.activeProd],
+            cart: [...this.state.cart, this.state.activeProd]
             // prodArr: this.state.prodArr.filter(e => e !== this.state.activeProd)
         })
     }
@@ -105,7 +95,7 @@ class StoreContainer extends Component {
             .then(res => {
                 console.log(res.data, "sign in res data");
                 if (res.data.email === this.state.email) {
-                    alert(`Welcome Back ${this.state.username}`);
+                    // alert(`Welcome Back ${this.state.username}`);
                     this.setState({ loginView: false, loggedIn: true })
                 }
                 else { alert("No such account found. Please try another username/password or create an account.") }
@@ -116,10 +106,7 @@ class StoreContainer extends Component {
     handleHasAccount = event => {
         this.setState({ hasAccount: !this.state.hasAccount })
     }
-    // placeOrderFun validates cc and info and displays success "modal"
-    // handleOrderFun = () => {
 
-    // }
 
     render() {
         return (
@@ -128,30 +115,35 @@ class StoreContainer extends Component {
                 {this.state.cartView ?
                     <CartContainer cart={this.state.cart} cartRemover={this.handleCartRemove} /> :
                     this.state.loginView ?
-                        <div>
+                        <div style={{ textAlign: 'center' }}>
                             {!this.state.hasAccount ?
-                                <Form style={{ textAlign: 'center' }}>
-                                    <Input label="Email Address" type="email" name="email" value={this.state.email} onChange={this.handleInputChange} floatingLabel={true} required={true} />
-                                    <Input label="Username" name="username" required={true} value={this.state.username} onChange={this.handleInputChange} floatingLabel={true} />
-                                    <Input label="Password" name="password" required={true} value={this.state.password} onChange={this.handleInputChange} floatingLabel={true} />
-                                    <Button onClick={this.handleSignUp} variant="raised">Sign Up</Button>
+                                <div>
+                                    <Form style={{ textAlign: 'center' }}>
+                                        <Input label="Email Address" type="email" name="email" value={this.state.email} onChange={this.handleInputChange} floatingLabel={true} required={true} />
+                                        <Input label="Username" name="username" required={true} value={this.state.username} onChange={this.handleInputChange} floatingLabel={true} />
+                                        <Input label="Password" name="password" type="password" required={true} value={this.state.password} onChange={this.handleInputChange} floatingLabel={true} />
+                                        <Button onClick={this.handleSignUp} variant="raised">Sign Up</Button>
+                                    </Form>
                                     <div>Already have an account?
-                    <Button onClick={this.handleHasAccount}>Sign In Here</Button>
-                                    </div>
-                                </Form>
+                    <Button onClick={this.handleHasAccount}>Sign In Here</Button> </div>
+                                    <Button onClick={this.handleHomeView}>Continue As Guest</Button>
+                                </div>
+
                                 :
-                                <Form style={{ textAlign: 'center' }}>
-                                    <Input label="Email Address" type="email" name="email" value={this.state.email} onChange={this.handleInputChange} floatingLabel={true} required={true} />
-                                    <Input label="Username" name="username" required={true} value={this.state.username} onChange={this.handleInputChange} floatingLabel={true} />
-                                    <Input label="Password" name="password" required={true} value={this.state.password} onChange={this.handleInputChange} floatingLabel={true} />
-                                    <Button onClick={this.handleSignIn} variant="raised">Sign In</Button>
+                                <div>
+                                    <Form >
+                                        <Input label="Email Address" type="email" name="email" value={this.state.email} onChange={this.handleInputChange} floatingLabel={true} required={true} />
+                                        <Input label="Username" name="username" required={true} value={this.state.username} onChange={this.handleInputChange} floatingLabel={true} />
+                                        <Input label="Password" type="password" name="password" required={true} value={this.state.password} onChange={this.handleInputChange} floatingLabel={true} />
+                                        <Button onClick={this.handleSignIn} variant="raised">Sign In</Button>
+                                    </Form>
                                     <div>Need to create an account?
-                    <Button onClick={this.handleHasAccount}>Sign Up Here</Button>
-                                    </div>
-                                </Form>} </div> :
+                    <Button onClick={this.handleHasAccount}>Sign Up Here</Button> </div>
+                                    <Button onClick={this.handleHomeView}>Continue As Guest</Button>
+                                </div>} </div> :
                         this.state.modal ?
                             <ProdDetail remover={this.handleProdRemove} active={this.state.activeProd} cartAdder={this.handleCartAdd} /> :
-                            <ProductContainer modal={this.state.modal} prodArr={this.state.prodArr} clicker={this.handleProdSelect} catArr={this.state.catArr} catSelect={this.handleCategorySelect} catRemove={this.handleCategoryRemove} />
+                            <ProductContainer modal={this.state.modal} prodArr={this.state.prodArr} clicker={this.handleProdSelect} />
                 }
                 {/* <Foot toggleHome={() => this.handleHomeView()} toggleCart={() => this.handleCartView()} toggleLogin={() => this.handleLoginView()} /> */}
             </div>
