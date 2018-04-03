@@ -1,0 +1,22 @@
+.cartProds{
+    font-size: 20px;
+    text-align: center;
+}
+.tot{
+    color: navy;
+    font-size: 20px;
+    text-align: center;
+    border: 3px dotted;
+    padding: 4px
+}
+/* @media only screen and (max-width: 991px) {
+    .tot{
+       width: 50%;
+    }
+    } */
+
+@media only screen and (max-width: 600px) {
+    .cartProds{
+        font-size: 12px
+    }
+    }

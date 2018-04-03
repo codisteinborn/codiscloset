@@ -12,6 +12,7 @@
     margin-top: 0;
     cursor: pointer;
     float: left;
+    height: 50px;
 }
 .navRight{
     float: right;
@@ -25,6 +26,7 @@
     .navBrand {
         font-size: 25px;
         margin-top: 7px;
+        height: 43px;
         }
         .navRight{
             font-size: 10px;

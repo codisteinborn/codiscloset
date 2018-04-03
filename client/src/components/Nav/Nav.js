@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Nav, NavItem, Navbar, MenuItem, NavDropdown } from 'react-bootstrap'
+import { Col, Nav, NavItem, Navbar, MenuItem, NavDropdown, Glyphicon } from 'react-bootstrap'
 import StoreContainer from './../../StoreContainer'
 import './Nav.css'
 
@@ -8,8 +8,7 @@ const Navbr = props => (
 <div id="nav">
 <div className="navBrand" onClick={props.toggleHome}>codi's closet</div>
 
-<div onClick={props.toggleCart} className=" navRight">CART</div>
-   {/* <i className="fas fa-shopping-cart"></i> */}
+<div onClick={props.toggleCart} className=" navRight"><Glyphicon glyph="shopping-cart" /></div>
    {!props.loggedIn ? 
 <div className="navRight" onClick={props.toggleLogin}> LOG IN/SIGN UP</div> :
 <div className="navRight"> Welcome {props.username}! </div>}
