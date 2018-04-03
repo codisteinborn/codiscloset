@@ -113,7 +113,7 @@ class StoreContainer extends Component {
             <div >
                 <Navbr loggedIn={this.state.loggedIn} username={this.state.username} toggleHome={() => this.handleHomeView()} toggleCart={() => this.handleCartView()} toggleLogin={() => this.handleLoginView()} />
                 {this.state.cartView ?
-                    <CartContainer cart={this.state.cart} cartRemover={this.handleCartRemove} /> :
+                    <CartContainer homeClick={this.handleHomeView} cart={this.state.cart} cartRemover={this.handleCartRemove} /> :
                     this.state.loginView ?
                         <div style={{ textAlign: 'center' }}>
                             {!this.state.hasAccount ?
@@ -125,7 +125,7 @@ class StoreContainer extends Component {
                                         <Button onClick={this.handleSignUp} variant="raised">Sign Up</Button>
                                     </Form>
                                     <div>Already have an account?
-                    <Button onClick={this.handleHasAccount}>Sign In Here</Button> </div>
+                                    <Button onClick={this.handleHasAccount}>Sign In Here</Button> </div>
                                     <Button onClick={this.handleHomeView}>Continue As Guest</Button>
                                 </div>
 
@@ -138,7 +138,7 @@ class StoreContainer extends Component {
                                         <Button onClick={this.handleSignIn} variant="raised">Sign In</Button>
                                     </Form>
                                     <div>Need to create an account?
-                    <Button onClick={this.handleHasAccount}>Sign Up Here</Button> </div>
+                                    <Button onClick={this.handleHasAccount}>Sign Up Here</Button> </div>
                                     <Button onClick={this.handleHomeView}>Continue As Guest</Button>
                                 </div>} </div> :
                         this.state.modal ?

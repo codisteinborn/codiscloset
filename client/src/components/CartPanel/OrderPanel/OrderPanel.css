@@ -1,0 +1,10 @@
+.orderModal{
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 768px) {
+    .orderModal{
+        width: 96%;
+        font-size: 15px;
+    }
+}

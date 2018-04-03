@@ -5,6 +5,9 @@ import { Col, Row, Modal, FormGroup, ControlLabel, FormControl, HelpBlock } from
 import Form from 'muicss/lib/react/form';
 import Input from 'muicss/lib/react/input';
 import Button from 'muicss/lib/react/button';
+import OrderPanel from "../OrderPanel/OrderPanel";
+import CartContainer from './../CartContainer';
+import './PayForm.css'
 
 
 class PayForm extends React.Component {
@@ -35,10 +38,6 @@ class PayForm extends React.Component {
         console.log(this.state)
     }
 
-
-// acceptmpt function which gives you success msg w/ order # and disables modal
-
-    // placeOrderFun validates cc and info and displays success "modal"
     handleOrderFun = () => {
 if(this.state.firstShipName === '' || this.state.lastShipName === ''){
     alert("Please enter valid shipping name.")
@@ -58,9 +57,9 @@ else if(this.state.zip.length !== 5){
 else if(this.state.firstBillName === '' || this.state.lastBillName === ''){
     alert("Please enter valid billing name.")
 }
-else if(this.state.cardNumber.length < 16){
-    alert("Please enter a valid credit card number.")
-}
+// else if(this.state.cardNumber.length < 16){
+//     alert("Please enter a valid credit card number.")
+// }
 else if(this.state.expiry.length < 4){
     alert("Please enter a valid expiration date.")
 }
@@ -73,7 +72,7 @@ else{this.setState({orderSuccess: true})}
     render() {
         return (
             !this.state.orderSuccess ?
-            <div style={{ padding: 5, color: 'black' }}>
+            <div className='pmtForm'>
                 <Form className="Shipping">
                     <legend style={{ fontSize: 18 }}>Shipping Info</legend>
                     <Input label="First Name" value={this.state.firstShipName} name="firstShipName" required={true} floatingLabel={true} onChange={this.handleChange} />
@@ -96,9 +95,7 @@ else{this.setState({orderSuccess: true})}
                 </Form>
                 <Button onClick={this.handleOrderFun} variant="raised">Place Order</Button>
             </div> :
-            <div>
-                Order Success!
-                </div>
+            <OrderPanel email={this.state.email}/>
         );
     }
 }

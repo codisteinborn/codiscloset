@@ -2,6 +2,9 @@
     width: 80%;
     height: 100%;
 }
+.modal{
+background-color: #777777f2;
+}
 .modal-content{
     background-color: whitesmoke;
     color: navy
@@ -11,9 +14,28 @@
     margin: 0;
     padding: 0
 }
+.prodDetName{
+    font-size: 30px;
+    padding: 20px;
+}
+.prodDetInfo{
+    font-size: 15px;
+    padding: 5px;
+}
 .cartBtn{
     width: 200px;
 }
 .detImg{
     height: 500px;
     width: 75% }
+
+@media only screen and (max-width: 768px) {
+    .detImg{ 
+            height: 450px;
+            width: 300px;
+            cursor: pointer;
+    }
+    .modal-dialog{
+        width: 95%
+    }
+}
