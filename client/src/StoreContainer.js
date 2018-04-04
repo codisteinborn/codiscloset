@@ -110,12 +110,12 @@ class StoreContainer extends Component {
 
     render() {
         return (
-            <div >
+            <div className='storeCont'>
                 <Navbr loggedIn={this.state.loggedIn} username={this.state.username} toggleHome={() => this.handleHomeView()} toggleCart={() => this.handleCartView()} toggleLogin={() => this.handleLoginView()} />
                 {this.state.cartView ?
-                    <CartContainer homeClick={this.handleHomeView} cart={this.state.cart} cartRemover={this.handleCartRemove} /> :
+                    <CartContainer  homeClick={this.handleHomeView} cart={this.state.cart} cartRemover={this.handleCartRemove} /> :
                     this.state.loginView ?
-                        <div style={{ textAlign: 'center' }}>
+                        <div style={{ textAlign: 'center'}}>
                             {!this.state.hasAccount ?
                                 <div>
                                     <Form style={{ textAlign: 'center' }}>
@@ -145,7 +145,6 @@ class StoreContainer extends Component {
                             <ProdDetail remover={this.handleProdRemove} active={this.state.activeProd} cartAdder={this.handleCartAdd} /> :
                             <ProductContainer modal={this.state.modal} prodArr={this.state.prodArr} clicker={this.handleProdSelect} />
                 }
-                {/* <Foot toggleHome={() => this.handleHomeView()} toggleCart={() => this.handleCartView()} toggleLogin={() => this.handleLoginView()} /> */}
             </div>
         );
     };
