@@ -1,18 +1,32 @@
-#footer{
-    bottom:0;
-    height: 175px;
-    clear: 'both';
-    background-color: 'whitesmoke';
-    color: 'navy';
+html, body{
+    position: relative;
+    height: 100%
 }
-/* 
+.storeCont{
+    min-height: 80vh;
+}
+.footer{
+    bottom: 0;
+    width: 100%;
+    bottom: 0px;
+    height: 175px;
+    clear: both;
+    background-color: whitesmoke;
+    color: navy;
+}
+.footItem{
+    cursor: pointer;
+    padding: 15px;
+    text-align: center;
+    font-size: 12px;
+}
+
 .footBrand{
     font-family: 'Monoton', 'cursive';
     font-size: 25px;
-    color: navy;
-    cursor: pointer;
-    float: left;
-} */
+    text-align: center;
+    /* float: left; */
+}
 
 
 /* @media only screen and (max-width: 600px) {
