@@ -1,6 +1,5 @@
 import React from "react";
-import { Col, Nav, NavItem, Navbar, MenuItem, NavDropdown, Glyphicon } from 'react-bootstrap'
-import StoreContainer from './../../StoreContainer'
+import { Glyphicon } from 'react-bootstrap'
 import './Nav.css'
 
 

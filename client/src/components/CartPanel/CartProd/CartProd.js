@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 import Button from 'muicss/lib/react/button';
 import './CartProd.css'
 

@@ -5,6 +5,11 @@ import CartProd from './CartProd'
 
 
 const CartContainer = props => {
+  /**
+   * this function takes in the cart
+   * @param {array} props.cart - this array contains product objects that the user has added to their cart
+   * @returns {number} - this returns the total price of all the products in the cart
+   */
   function total(){
     var prices = props.cart.map(elem => elem.price);
     return prices.reduce((total, price) => total + price, 0);
@@ -17,7 +22,7 @@ const CartContainer = props => {
     <div className="tot">Your Total: ${total()}</div>
     </Col>
     <Col sm={12} md={6} lg={6}>
-      <PayForm/>
+      <PayForm homeClick={props.homeClick}/>
     </Col>
     </Row>
   </div> :

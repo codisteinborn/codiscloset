@@ -14,7 +14,7 @@ const ProdDetail = props => (
   <Modal.Body>
 <Row>
   <Col xs={12} sm={6} md={6}>
-    <img className="detImg" src={props.active.image} />
+    <img className="detImg" src={props.active.image} alt='prod detail img' />
   </Col>
   <Col xs={12} sm={6} md={6} className="details">
     <div className="prodDetName"> {props.active.name} </div>
