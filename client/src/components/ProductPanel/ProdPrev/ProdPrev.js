@@ -5,7 +5,7 @@ import './ProdPrev.css'
 
 const ProdPrev = props => (
   <Col md={4} sm={6} xs={12} className="pp" category={props.category} price={props.price} name={props.name} key={props.id}>
-    <Row><img onClick={() => props.clicker(props.id)} className="prodImg" src={props.image} /></Row>
+    <Row><img onClick={() => props.clicker(props.id)} className="prodImg" src={props.image} alt='product' /></Row>
     <Row className="prodInfo">{props.name} ${props.price}</Row>
     <Button className="viewBtn" variant="raised" key={props.id} onClick={() => props.clicker(props.id)}>View Details </Button>
   </Col>

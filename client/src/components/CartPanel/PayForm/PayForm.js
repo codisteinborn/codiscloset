@@ -1,12 +1,9 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import CreditCardInput from 'react-credit-card-input';
-import { Col, Row, Modal, FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap'
 import Form from 'muicss/lib/react/form';
 import Input from 'muicss/lib/react/input';
 import Button from 'muicss/lib/react/button';
 import OrderPanel from "../OrderPanel/OrderPanel";
-import CartContainer from './../CartContainer';
 import './PayForm.css'
 
 
@@ -26,7 +23,8 @@ class PayForm extends React.Component {
             email: '',
             zip: '',
             stateCode: '',
-            orderSuccess: false
+            orderSuccess: false,
+            homeClick: this.props.homeClick
         };
     }
 
@@ -37,7 +35,10 @@ class PayForm extends React.Component {
         });
         console.log(this.state)
     }
-
+/**
+*this function provides psudo validation for a user's shipping address and billing information. If not valid it will alert user for fields to correct. If valid it will trigger a modal with a fake order confirmation.
+* @param {object} state - this function takes in the state object
+**/
     handleOrderFun = () => {
 if(this.state.firstShipName === '' || this.state.lastShipName === ''){
     alert("Please enter valid shipping name.")
@@ -57,9 +58,6 @@ else if(this.state.zip.length !== 5){
 else if(this.state.firstBillName === '' || this.state.lastBillName === ''){
     alert("Please enter valid billing name.")
 }
-// else if(this.state.cardNumber.length < 16){
-//     alert("Please enter a valid credit card number.")
-// }
 else if(this.state.expiry.length < 4){
     alert("Please enter a valid expiration date.")
 }
@@ -95,7 +93,7 @@ else{this.setState({orderSuccess: true})}
                 </Form>
                 <Button onClick={this.handleOrderFun} variant="raised">Place Order</Button>
             </div> :
-            <OrderPanel email={this.state.email}/>
+            <OrderPanel homeClick={this.state.homeClick} email={this.state.email}/>
         );
     }
 }

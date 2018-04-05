@@ -1,6 +1,4 @@
 import React from "react";
-import ReactDOM from 'react-dom';
-import PayForm from './../PayForm/PayForm'
 import Button from 'muicss/lib/react/button';
 import { Modal } from "react-bootstrap";
 import './OrderPanel.css'
@@ -20,7 +18,7 @@ const OrderPanel = props => (
         </Modal.Body>
 
     <Modal.Footer>
-      <Button>Back to Home</Button>
+      <Button onClick={props.homeClick}>Back to Home</Button>
     </Modal.Footer>
   </Modal.Dialog>
 </div>
