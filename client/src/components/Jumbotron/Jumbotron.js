@@ -5,7 +5,7 @@ import "./jumbotron.css";
 
 const Jumbo = props =>
 <Jumbotron className="jumboBkrnd" >
-  <Button onClick={props.jumboHide} variant="raised" className="shopBtn">Shop Now</Button>
+  {/* <div onClick={props.jumboHide} variant="raised" className="shopBtn">Shop Now</div> */}
   </Jumbotron>;
 
 export default Jumbo;

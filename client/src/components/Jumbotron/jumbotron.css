@@ -13,10 +13,11 @@
     border: 6px solid white;
     background-color: rgba(245, 245, 245, 0) ;
     color: white;
-    font-size: 30px;
+    font-size: 35px;
     position: absolute;
     bottom: 50px;
-    left: 50px
+    left: 50px;
+    text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
